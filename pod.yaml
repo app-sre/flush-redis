@@ -1,0 +1,20 @@
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: flush-redis
+spec:
+  containers:
+  - name: flush-redis
+    image: quay.io/tparikh/flush-redis:v0.1
+    env:
+    - name: REDIS_HOST
+      valueFrom:
+        secretKeyRef:
+          name: redis-config
+          key: hostname
+    - name: REDIS_AUTH
+      valueFrom:
+        secretKeyRef:
+          name: redis-config
+          key: auth
