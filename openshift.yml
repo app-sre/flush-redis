@@ -50,9 +50,9 @@ objects:
             valueFrom:
               secretKeyRef:
                 name: ${{REDIS_SECRET}}
-                key: hostname
+                key: db.endpoint
           - name: REDIS_AUTH
             valueFrom:
               secretKeyRef:
                 name: ${{REDIS_SECRET}}
-                key: auth
+                key: db.auth_token
